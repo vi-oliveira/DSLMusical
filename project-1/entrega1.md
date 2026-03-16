@@ -47,7 +47,7 @@ Uma descrição mais precisa dos parâmetros é:
 Além disso, no sample, podem ser usados os comandos `repetir`, para repetir um determinado bloco, no qual é especificado o número de repetições e o atraso entre as repetições.
 
 ```
-repetir(vezes, atraso) {...};
+repetir(vezes, atraso) {...}
 ```
 - `vezes`: Um número inteiro.
 
@@ -56,7 +56,7 @@ repetir(vezes, atraso) {...};
 
 E também o comando `atraso`, para atrasar um determinado bloco.
 ```
-atraso(atraso) {...};
+atraso(atraso) {...}
 ```
 - `atraso`: Um número decimal indicando o tempo de atraso antes de tocar a nota.
 
