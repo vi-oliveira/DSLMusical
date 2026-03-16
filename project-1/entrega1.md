@@ -10,7 +10,7 @@ A linguagem também permite que mais de uma pessoa colabore na criação de uma 
 
 ## Slides
 
-https://docs.google.com/presentation/d/1jFzdaqY28vyw9d-001e_1V-5YtPxjPN9Q6TTht-eQa0/edit?usp=sharing
+[https://docs.google.com/presentation/d/1jFzdaqY28vyw9d-001e_1V-5YtPxjPN9Q6TTht-eQa0/edit?usp=sharing](https://docs.google.com/presentation/d/13haP9X17PTaQvag1hF4eJKRT3X6LdRXWDMJfAUm7LNQ/edit?usp=sharing)
 
 ## Sintaxe da Linguagem na Forma de Tutorial
 
