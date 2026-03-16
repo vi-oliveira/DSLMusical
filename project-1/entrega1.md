@@ -50,7 +50,8 @@
 
 ## Exemplos Selecionados
 
-``` main(120){
+``` 
+main(120){
      sample sequencia1 {
          som (C4, 0.8, 0.5);
          som (B1, 1.0, 0.2);
