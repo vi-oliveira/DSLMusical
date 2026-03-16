@@ -27,7 +27,7 @@ O trecho acima executa a música desejada a 120 BPM.
 Para organizar a música, as notas são agrupadas dentro de blocos chamados `sample`. É necessário dar um nome a esse bloco para poder chamá-lo depois. O `sample` é montado assim: 
 
 ```
-sample nome_da_sequencia { ... }
+sample nome_da_sequencia (duracao) { ... }
 ````
 
 Dentro de um sample, as notas são adicionadas usando o comando `som`. Ele recebe três parâmetros obrigatórios, separados por vírgula, e devem sempre terminar com ponto e vírgula (`;`) da seguinte forma:
@@ -43,6 +43,24 @@ Uma descrição mais precisa dos parâmetros é:
 
 - `volume`: Um número decimal indicando a intensidade do som. Ex: 0.8, 1.0.
 
+
+Além disso, no sample, podem ser usados os comandos `repetir`, para repetir um determinado bloco, no qual é especificado o número de repetições e o atraso entre as repetições.
+
+```
+repetir(vezes, atraso) {...};
+```
+- `vezes`: Um número inteiro.
+
+- `atraso`: Um número decimal indicando o tempo de atraso entre cada repetição.
+
+
+E também o comando `atraso`, para atrasar um determinado bloco.
+```
+atraso(atraso) {...};
+```
+- `atraso`: Um número decimal indicando o tempo de atraso antes de tocar a nota.
+
+
 Depois de definidos, para tocar os samples é utilizado o comando `play`, que chama uma sequência pelo nome e define quantas vezes ela deve se repetir em loop. Cada comando `play` também deve terminar com ponto e vírgula (`;`), com a sintaxe:
 
 ```
@@ -51,6 +69,33 @@ play nome_da_sequencia(repeticoes);
 
 
 ## Gramática da Linguagem
+
+### Lexer
+
+```
+COMMA : ',' ;
+SEMICOLON : ';' ;
+LPAREN : '(' ;
+RPAREN : ')' ;
+LCBRACES : '{' ;
+RCBRACES : '}' ;
+
+MAIN : 'main';
+SAMPLE: 'sample';
+FLOAT : [0-9]+'.'[0-9]+ ;
+REPEAT : 'repetir';
+WAIT : 'atraso';
+SOM : 'som';
+NOTA : [A-G][1-9];
+PLAY : 'play';
+
+INT : [0-9]+ ;
+IDENT: [a-zA-Z_][a-zA-Z_0-9]* ;
+WS: [ \t\n\r\f]+ -> skip ;
+```
+
+
+### Parser
 
 ```
 parser grammar PL0Parser;
@@ -63,7 +108,11 @@ mainBlock  : MAIN LPAREN INT RPAREN LCBRACES body RCBRACES ;
 
 body       : sampleDecl* playStmt* ;
 
-sampleDecl : SAMPLE IDENT LCBRACES somStmt* RCBRACES ;
+sampleDecl : SAMPLE IDENT LPAREN FLOAT RPAREN LCBRACES (repeatStmt | somStmt | waitStmt)* RCBRACES ;
+
+repeatStmt : REPEAT LPAREN INT COMMA FLOAT RPAREN LCBRACES (repeatStmt | somStmt | waitStmt)* RCBRACES ;
+
+waitStmt : WAIT LPAREN FLOAT RPAREN LCBRACES (repeatStmt | somStmt | waitStmt)* RCBRACES ;
 
 somStmt    : SOM LPAREN NOTA COMMA FLOAT COMMA FLOAT RPAREN SEMICOLON ;
 
@@ -73,21 +122,24 @@ playStmt   : PLAY IDENT LPAREN INT RPAREN SEMICOLON ;
 ## Exemplos Selecionados
 
 ``` 
-main(120){
-     sample sequencia1 {
-         som (C4, 0.8, 0.5);
-         som (B1, 1.0, 0.2);
-     }
- 
-     sample sequencia2 {
-         som (B1, 0.2, 1.0);
-         som (B1, 0.2, 1.0);
-     }
- 
-     play sequencia1(4);
-     play sequencia2(3);
-     play sequencia1(2);
- }
+main(120) {
+	sample sequencia1(0.2) {
+		som (C4, 0.5, 0.8);
+		som (A1, 0.2, 0.8);
+		
+		atraso (0.5) {
+		
+			som (G4, 0.1, 0.8);
+			som (B1, 0.2, 0.8);
+			
+			repetir (3, 0.1) {
+				som (A5, 0.1, 0.8);
+			}
+		}
+	}
+
+	play sequencia1(4);
+}
  ```
 
 # Referências Bibliográficas
