@@ -50,21 +50,22 @@
 
 ## Exemplos Selecionados
 
-> main(120){
->     sample sequencia1 {
->         som (C4, 0.8, 0.5);
->         som (B1, 1.0, 0.2);
->     }
-> 
->     sample sequencia2 {
->         som (B1, 0.2, 1.0);
->         som (B1, 0.2, 1.0);
->     }
-> 
->     play sequencia1(4);
->     play sequencia2(3);
->     play sequencia1(2);
-> }
+``` main(120){
+     sample sequencia1 {
+         som (C4, 0.8, 0.5);
+         som (B1, 1.0, 0.2);
+     }
+ 
+     sample sequencia2 {
+         som (B1, 0.2, 1.0);
+         som (B1, 0.2, 1.0);
+     }
+ 
+     play sequencia1(4);
+     play sequencia2(3);
+     play sequencia1(2);
+ }
+ ```
 
 # Referências Bibliográficas
 [Instrumento Realejo](https://pt.wikipedia.org/wiki/Realejo)
