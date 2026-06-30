@@ -105,9 +105,7 @@ playStmt    : PLAY IDENT LPAREN INT RPAREN SEMICOLON ;
 
 ## Notebook
 
-> Coloque aqui o link para o notebook que implementa a linguagem e links ou indicações para pastas contendo qualquer outro tipo de código.
->
-> Exemplo: [notebook](macros-abstraction.ipynb)
+[notebook](macros-abstraction.ipynb)
 
 ## Exemplos Selecionados
 
