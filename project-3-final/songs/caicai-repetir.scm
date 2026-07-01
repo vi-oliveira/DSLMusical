@@ -29,20 +29,13 @@
       (atraso (* 12 colcheia) (som 'E4 colcheia 1.0))
       (atraso (* 13 colcheia) (som 'D4 (* 3 colcheia) 1.0))
 
-      ;; Não cai não
-      (atraso (* 16 colcheia) (som 'D4 colcheia 1.0))
-      (atraso (* 17 colcheia) (som 'E4 colcheia 1.0))
-      (atraso (* 18 colcheia) (som 'F4 (* 2 colcheia) 1.0))
-      
-      ;; Não cai não
-      (atraso (* 20 colcheia) (som 'D4 colcheia 1.0))
-      (atraso (* 21 colcheia) (som 'E4 colcheia 1.0))
-      (atraso (* 22 colcheia) (som 'F4 (* 2 colcheia) 1.0))
-
-      ;; Não cai não
-      (atraso (* 24 colcheia) (som 'D4 colcheia 1.0))
-      (atraso (* 25 colcheia) (som 'E4 colcheia 1.0))
-      (atraso (* 26 colcheia) (som 'F4 (* 2 colcheia) 1.0))
+      (atraso (* 16 colcheia) 
+        (repetir 3 (* 2 colcheia)  
+            (som 'D4 colcheia 1.0)
+            (atraso colcheia (som 'E4 colcheia 1.0))
+            (atraso (* 2 colcheia) (som 'F4 (* 2 colcheia) 1.0))
+            )
+    )
 
       ;; Cai na rua do sabão
       (atraso (* 28 colcheia) (som 'G4 colcheia 1.0))

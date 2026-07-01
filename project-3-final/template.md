@@ -10,7 +10,7 @@ A linguagem também permite que mais de uma pessoa colabore na criação de uma 
 
 ## Slides
 
-> Coloque aqui o link para o PDF da apresentação final.
+> [Link para a apresentação](https://docs.google.com/presentation/d/1ya9G4M8w8LtjyTFOQsJN3Jv62NCGlRLRo4SLwk00BnM/edit?slide=id.g3d053e310cb_0_134#slide=id.g3d053e310cb_0_134)
 
 ## Sintaxe da Linguagem e Macros Scheme
 

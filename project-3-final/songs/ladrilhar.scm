@@ -5,7 +5,7 @@
 (define (n offset nota dur vol)
   (atraso offset (som nota dur vol)))
 
-(let* ((bpm 76)
+(let* ((bpm 120)
        (u (bpm->dur bpm 4))) ; unidade = semicolcheia
   (music bpm
     (sample se-essa-rua-melody

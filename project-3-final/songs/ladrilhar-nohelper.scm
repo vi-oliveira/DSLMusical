@@ -1,7 +1,7 @@
 (add-to-load-path ".")
 (use-modules (dsl) (audio) (notas))
 
-(let* ((bpm 76)
+(let* ((bpm 120)
        (u (bpm->dur bpm 4))) ; unidade rítmica
   (music bpm
     (sample se-essa-rua-melody
